@@ -110,6 +110,7 @@ func (s *mdnsService) getIPs(addrs []ma.Multiaddr) ([]string, error) {
 }
 
 func (s *mdnsService) startServer() error {
+	fmt.Println("start")
 	interfaceAddrs, err := s.host.Network().InterfaceListenAddresses()
 	if err != nil {
 		return err
