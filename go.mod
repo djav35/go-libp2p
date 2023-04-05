@@ -2,6 +2,8 @@ module github.com/djav35/go-libp2p
 
 go 1.19
 
+
+
 require (
 	github.com/benbjohnson/clock v1.3.0
 	github.com/davidlazar/go-crypto v0.0.0-20200604182044-b73af7476f6c
