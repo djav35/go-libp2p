@@ -124,7 +124,7 @@ func (s *mdnsService) startServer() error {
 	var txts []string
 	for _, addr := range addrs {
 		if manet.IsThinWaist(addr) { // don't announce circuit addresses
-			txts = append(txts, dnsaddrPrefix+addr.String())
+			txts = append(txts, addr.String())
 		}
 	}
 
@@ -137,7 +137,7 @@ func (s *mdnsService) startServer() error {
 		s.peerName,
 		s.serviceName,
 		mdnsDomain,
-		4001, // we have to pass in a port number here, but libp2p only uses the TXT records
+		4002, // we have to pass in a port number here, but libp2p only uses the TXT records
 		s.peerName,
 		ips,
 		txts,
