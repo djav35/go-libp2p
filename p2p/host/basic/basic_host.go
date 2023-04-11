@@ -725,7 +725,7 @@ func (h *BasicHost) Connect(ctx context.Context, pi peer.AddrInfo) error {
 			return nil
 		}
 	}
-
+	fmt.Println("dial...")
 	return h.dialPeer(ctx, pi.ID)
 }
 

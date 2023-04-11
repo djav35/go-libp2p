@@ -38,12 +38,15 @@ import (
 	mrand "math/rand"
 	"os"
 
-	"github.com/libp2p/go-libp2p"
+	"github.com/djav35/go-libp2p"
 	"github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/libp2p/go-libp2p/core/host"
 	"github.com/libp2p/go-libp2p/core/network"
 	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/libp2p/go-libp2p/core/peerstore"
+
+	"github.com/djav35/go-libp2p/p2p/muxer/mplex"
+	"github.com/libp2p/go-libp2p/p2p/muxer/yamux"
 
 	"github.com/multiformats/go-multiaddr"
 )
@@ -93,6 +96,7 @@ func writeData(rw *bufio.ReadWriter) {
 }
 
 func main() {
+	fmt.Println(yamux.ID, mplex.ID)
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
@@ -217,12 +221,14 @@ func startPeerAndConnect(ctx context.Context, h host.Host, destination string) (
 	// Add the destination's peer multiaddress in the peerstore.
 	// This will be used during connection and stream creation by libp2p.
 	h.Peerstore().AddAddrs(info.ID, info.Addrs, peerstore.PermanentAddrTTL)
-
+	fmt.Println("here")
 	// Start a stream with the destination.
 	// Multiaddress of the destination peer is fetched from the peerstore using 'peerId'.
 	s, err := h.NewStream(context.Background(), info.ID, "/chat/1.0.0")
+	fmt.Println("here2")
 	if err != nil {
-		log.Println(err)
+		log.Println("err:", err)
+		fmt.Println("here3")
 		return nil, err
 	}
 	log.Println("Established connection to destination")

@@ -2,7 +2,7 @@ module github.com/djav35/go-libp2p
 
 go 1.19
 
-
+replace github.com/libp2p/go-libp2p => /Users/Diego/go/src/github.com/djav35/go-libp2p
 
 require (
 	github.com/benbjohnson/clock v1.3.0
@@ -92,7 +92,6 @@ require (
 	github.com/miekg/dns v1.1.50 // indirect
 	github.com/mikioh/tcpopt v0.0.0-20190314235656-172688c1accc // indirect
 	github.com/multiformats/go-base36 v0.2.0 // indirect
-	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/onsi/ginkgo/v2 v2.5.1 // indirect
 	github.com/opencontainers/runtime-spec v1.0.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
